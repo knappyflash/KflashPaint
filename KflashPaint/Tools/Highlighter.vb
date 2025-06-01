@@ -21,7 +21,7 @@ Public Class Highlighter
         End Get
         Set(value As Point)
             _myLocation = value
-            CanvasForm.DrawAll()
+            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -32,7 +32,7 @@ Public Class Highlighter
         End Get
         Set(value As Size)
             _mySize = value
-            CanvasForm.DrawAll()
+            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -43,7 +43,7 @@ Public Class Highlighter
         End Get
         Set(value As Color)
             _myBgColor = value
-            CanvasForm.DrawAll()
+            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -54,7 +54,7 @@ Public Class Highlighter
         End Get
         Set(value As Color)
             _myBorderColor = value
-            CanvasForm.DrawAll()
+            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -64,11 +64,11 @@ Public Class Highlighter
         _myBgColor = Color.FromArgb(100, 255, 255, 0)
         _myBorderColor = Color.FromArgb(0, 255, 255, 255)
         MainAppForm.ToolsPropertyGrid.SelectedObject = Me
-        CanvasForm.DrawAll()
+        CanvasForm.Invalidate()
     End Sub
 
-    Public Sub Draw()
-        Dim g As Graphics = _myForm.CreateGraphics()
+    Public Sub Draw(g As Graphics)
+        'Dim g As Graphics = _myForm.CreateGraphics()
         Dim mySolidBrush As SolidBrush
         Dim myBorderPen As Pen
         Dim rect As Rectangle
