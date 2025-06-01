@@ -25,21 +25,21 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AppPanel = New System.Windows.Forms.Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ArrowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.HighlighterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BlurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TextToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PngToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JpgToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ArrowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HighlighterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BlurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TextToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AppPanel = New System.Windows.Forms.Panel()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,25 +59,43 @@ Partial Class Form1
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "File"
         '
-        'AppPanel
+        'SaveToolStripMenuItem
         '
-        Me.AppPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.AppPanel.Location = New System.Drawing.Point(12, 27)
-        Me.AppPanel.Name = "AppPanel"
-        Me.AppPanel.Size = New System.Drawing.Size(776, 411)
-        Me.AppPanel.TabIndex = 1
+        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
+        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.SaveToolStripMenuItem.Text = "Save"
         '
-        'Timer1
+        'ExportToolStripMenuItem
         '
+        Me.ExportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PngToolStripMenuItem, Me.JpgToolStripMenuItem})
+        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.ExportToolStripMenuItem.Text = "Export"
+        '
+        'PngToolStripMenuItem
+        '
+        Me.PngToolStripMenuItem.Name = "PngToolStripMenuItem"
+        Me.PngToolStripMenuItem.Size = New System.Drawing.Size(95, 22)
+        Me.PngToolStripMenuItem.Text = "png"
+        '
+        'JpgToolStripMenuItem
+        '
+        Me.JpgToolStripMenuItem.Name = "JpgToolStripMenuItem"
+        Me.JpgToolStripMenuItem.Size = New System.Drawing.Size(95, 22)
+        Me.JpgToolStripMenuItem.Text = "jpg"
+        '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(108, 22)
+        Me.PrintToolStripMenuItem.Text = "Print"
         '
         'ToolToolStripMenuItem
         '
         Me.ToolToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArrowToolStripMenuItem, Me.HighlighterToolStripMenuItem, Me.BlurToolStripMenuItem, Me.TextToolStripMenuItem, Me.LineToolStripMenuItem})
         Me.ToolToolStripMenuItem.Name = "ToolToolStripMenuItem"
-        Me.ToolToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.ToolToolStripMenuItem.Text = "Tool"
+        Me.ToolToolStripMenuItem.Size = New System.Drawing.Size(46, 20)
+        Me.ToolToolStripMenuItem.Text = "Tools"
         '
         'ArrowToolStripMenuItem
         '
@@ -97,19 +115,6 @@ Partial Class Form1
         Me.BlurToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.BlurToolStripMenuItem.Text = "Blur"
         '
-        'ImageToolStripMenuItem
-        '
-        Me.ImageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeToolStripMenuItem})
-        Me.ImageToolStripMenuItem.Name = "ImageToolStripMenuItem"
-        Me.ImageToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.ImageToolStripMenuItem.Text = "Image"
-        '
-        'ResizeToolStripMenuItem
-        '
-        Me.ResizeToolStripMenuItem.Name = "ResizeToolStripMenuItem"
-        Me.ResizeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ResizeToolStripMenuItem.Text = "Resize"
-        '
         'TextToolStripMenuItem
         '
         Me.TextToolStripMenuItem.Name = "TextToolStripMenuItem"
@@ -122,36 +127,31 @@ Partial Class Form1
         Me.LineToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.LineToolStripMenuItem.Text = "Line"
         '
-        'SaveToolStripMenuItem
+        'ImageToolStripMenuItem
         '
-        Me.SaveToolStripMenuItem.Name = "SaveToolStripMenuItem"
-        Me.SaveToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.SaveToolStripMenuItem.Text = "Save"
+        Me.ImageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeToolStripMenuItem})
+        Me.ImageToolStripMenuItem.Name = "ImageToolStripMenuItem"
+        Me.ImageToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.ImageToolStripMenuItem.Text = "Image"
         '
-        'ExportToolStripMenuItem
+        'ResizeToolStripMenuItem
         '
-        Me.ExportToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PngToolStripMenuItem, Me.JpgToolStripMenuItem})
-        Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.ExportToolStripMenuItem.Text = "Export"
+        Me.ResizeToolStripMenuItem.Name = "ResizeToolStripMenuItem"
+        Me.ResizeToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
+        Me.ResizeToolStripMenuItem.Text = "Resize"
         '
-        'PngToolStripMenuItem
+        'AppPanel
         '
-        Me.PngToolStripMenuItem.Name = "PngToolStripMenuItem"
-        Me.PngToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PngToolStripMenuItem.Text = "png"
+        Me.AppPanel.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AppPanel.Location = New System.Drawing.Point(12, 27)
+        Me.AppPanel.Name = "AppPanel"
+        Me.AppPanel.Size = New System.Drawing.Size(776, 411)
+        Me.AppPanel.TabIndex = 1
         '
-        'JpgToolStripMenuItem
+        'Timer1
         '
-        Me.JpgToolStripMenuItem.Name = "JpgToolStripMenuItem"
-        Me.JpgToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.JpgToolStripMenuItem.Text = "jpg"
-        '
-        'PrintToolStripMenuItem
-        '
-        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
-        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.PrintToolStripMenuItem.Text = "Print"
         '
         'Form1
         '
