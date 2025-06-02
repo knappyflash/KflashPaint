@@ -22,7 +22,13 @@ Partial Class CanvasForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Me.LoopTimer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
+        '
+        'LoopTimer
+        '
+        Me.LoopTimer.Interval = 10
         '
         'CanvasForm
         '
@@ -43,4 +49,6 @@ Partial Class CanvasForm
         Me.ResumeLayout(False)
 
     End Sub
+
+    Friend WithEvents LoopTimer As Timer
 End Class

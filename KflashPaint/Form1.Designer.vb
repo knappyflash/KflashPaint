@@ -22,7 +22,6 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SaveToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -37,9 +36,9 @@ Partial Class Form1
         Me.TextToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LineToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ResizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeImageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResizeCanvasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AppPanel = New System.Windows.Forms.Panel()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -100,45 +99,51 @@ Partial Class Form1
         'ArrowToolStripMenuItem
         '
         Me.ArrowToolStripMenuItem.Name = "ArrowToolStripMenuItem"
-        Me.ArrowToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ArrowToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.ArrowToolStripMenuItem.Text = "Arrow"
         '
         'HighlighterToolStripMenuItem
         '
         Me.HighlighterToolStripMenuItem.Name = "HighlighterToolStripMenuItem"
-        Me.HighlighterToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.HighlighterToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.HighlighterToolStripMenuItem.Text = "Highlighter"
         '
         'BlurToolStripMenuItem
         '
         Me.BlurToolStripMenuItem.Name = "BlurToolStripMenuItem"
-        Me.BlurToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.BlurToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.BlurToolStripMenuItem.Text = "Blur"
         '
         'TextToolStripMenuItem
         '
         Me.TextToolStripMenuItem.Name = "TextToolStripMenuItem"
-        Me.TextToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.TextToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.TextToolStripMenuItem.Text = "Text"
         '
         'LineToolStripMenuItem
         '
         Me.LineToolStripMenuItem.Name = "LineToolStripMenuItem"
-        Me.LineToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.LineToolStripMenuItem.Size = New System.Drawing.Size(134, 22)
         Me.LineToolStripMenuItem.Text = "Line"
         '
         'ImageToolStripMenuItem
         '
-        Me.ImageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeToolStripMenuItem})
+        Me.ImageToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ResizeImageToolStripMenuItem, Me.ResizeCanvasToolStripMenuItem})
         Me.ImageToolStripMenuItem.Name = "ImageToolStripMenuItem"
         Me.ImageToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
         Me.ImageToolStripMenuItem.Text = "Image"
         '
-        'ResizeToolStripMenuItem
+        'ResizeImageToolStripMenuItem
         '
-        Me.ResizeToolStripMenuItem.Name = "ResizeToolStripMenuItem"
-        Me.ResizeToolStripMenuItem.Size = New System.Drawing.Size(106, 22)
-        Me.ResizeToolStripMenuItem.Text = "Resize"
+        Me.ResizeImageToolStripMenuItem.Name = "ResizeImageToolStripMenuItem"
+        Me.ResizeImageToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ResizeImageToolStripMenuItem.Text = "Resize Image"
+        '
+        'ResizeCanvasToolStripMenuItem
+        '
+        Me.ResizeCanvasToolStripMenuItem.Name = "ResizeCanvasToolStripMenuItem"
+        Me.ResizeCanvasToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ResizeCanvasToolStripMenuItem.Text = "Resize Canvas"
         '
         'AppPanel
         '
@@ -149,9 +154,6 @@ Partial Class Form1
         Me.AppPanel.Name = "AppPanel"
         Me.AppPanel.Size = New System.Drawing.Size(776, 411)
         Me.AppPanel.TabIndex = 1
-        '
-        'Timer1
-        '
         '
         'Form1
         '
@@ -174,7 +176,6 @@ Partial Class Form1
     Friend WithEvents MenuStrip1 As MenuStrip
     Friend WithEvents FileToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AppPanel As Panel
-    Friend WithEvents Timer1 As Timer
     Friend WithEvents ToolToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ExportToolStripMenuItem As ToolStripMenuItem
@@ -187,5 +188,6 @@ Partial Class Form1
     Friend WithEvents TextToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LineToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImageToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ResizeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResizeImageToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResizeCanvasToolStripMenuItem As ToolStripMenuItem
 End Class

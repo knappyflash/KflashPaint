@@ -21,7 +21,6 @@ Public Class Highlighter
         End Get
         Set(value As Point)
             _myLocation = value
-            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -32,7 +31,6 @@ Public Class Highlighter
         End Get
         Set(value As Size)
             _mySize = value
-            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -43,7 +41,6 @@ Public Class Highlighter
         End Get
         Set(value As Color)
             _myBgColor = value
-            CanvasForm.Invalidate()
         End Set
     End Property
 
@@ -54,21 +51,19 @@ Public Class Highlighter
         End Get
         Set(value As Color)
             _myBorderColor = value
-            CanvasForm.Invalidate()
         End Set
     End Property
 
     Public Sub New()
         _myForm = CanvasForm
         _myLocation = New Point(0, 0)
+        _mySize = New Size(100, 100)
         _myBgColor = Color.FromArgb(100, 255, 255, 0)
         _myBorderColor = Color.FromArgb(0, 255, 255, 255)
         MainAppForm.ToolsPropertyGrid.SelectedObject = Me
-        CanvasForm.Invalidate()
     End Sub
 
     Public Sub Draw(g As Graphics)
-        'Dim g As Graphics = _myForm.CreateGraphics()
         Dim mySolidBrush As SolidBrush
         Dim myBorderPen As Pen
         Dim rect As Rectangle
@@ -80,15 +75,27 @@ Public Class Highlighter
 
             Dim resizedBitmap As New Bitmap(originalBitmap, newWidth, newHeight)
 
-            ' Draw the scaled image
             g.DrawImage(resizedBitmap, New Point(30, 30))
         End If
 
 
         mySolidBrush = New SolidBrush(_myBgColor)
         myBorderPen = New Pen(_myBorderColor)
-        rect = New Rectangle(_myLocation.X, _myLocation.Y, 100, 100)
+        rect = New Rectangle(_myLocation.X, _myLocation.Y, _mySize.Width, _mySize.Height)
         g.FillRectangle(mySolidBrush, rect)
+        g.DrawRectangle(myBorderPen, rect)
+    End Sub
+
+    Public Sub ShowSelectAnimation(g As Graphics)
+        Dim dashOffset As Integer = Environment.TickCount \ 100 Mod 16 ' Varies over time
+        Dim myBorderPen As New Pen(Color.Black, 2) With {.DashStyle = Drawing2D.DashStyle.Dash}
+
+        ' Define a shifting dash pattern
+        myBorderPen.DashPattern = New Single() {4, 4}
+        myBorderPen.DashOffset = dashOffset
+
+        ' Draw the animated selection rectangle
+        Dim rect As New Rectangle(_myLocation.X, _myLocation.Y, _mySize.Width, _mySize.Height)
         g.DrawRectangle(myBorderPen, rect)
     End Sub
 
