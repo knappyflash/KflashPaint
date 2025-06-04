@@ -6,6 +6,10 @@ Public Class Highlighter
     Private _myBgColor As Color
     Private _myBorderColor As Color
     Private _mySize As Size
+    Private _isSelected As Boolean
+    Private _canMove As Boolean
+    Private mouseLoc As New Point
+    Private offset As New Point
 
     <Category("General")>
     Public ReadOnly Property ToolType As String
@@ -60,6 +64,8 @@ Public Class Highlighter
         _mySize = New Size(100, 100)
         _myBgColor = Color.FromArgb(100, 255, 255, 0)
         _myBorderColor = Color.FromArgb(0, 255, 255, 255)
+        _isSelected = True
+        _canMove = True
         MainAppForm.ToolsPropertyGrid.SelectedObject = Me
     End Sub
 
@@ -84,9 +90,16 @@ Public Class Highlighter
         rect = New Rectangle(_myLocation.X, _myLocation.Y, _mySize.Width, _mySize.Height)
         g.FillRectangle(mySolidBrush, rect)
         g.DrawRectangle(myBorderPen, rect)
+
+        ShowSelectAnimation(g)
+        Update_Move()
+
     End Sub
 
     Public Sub ShowSelectAnimation(g As Graphics)
+
+        If Not _isSelected Then Exit Sub
+
         Dim dashOffset As Integer = Environment.TickCount \ 100 Mod 16 ' Varies over time
         Dim myBorderPen As New Pen(Color.Black, 2) With {.DashStyle = Drawing2D.DashStyle.Dash}
 
@@ -97,6 +110,21 @@ Public Class Highlighter
         ' Draw the animated selection rectangle
         Dim rect As New Rectangle(_myLocation.X, _myLocation.Y, _mySize.Width, _mySize.Height)
         g.DrawRectangle(myBorderPen, rect)
+    End Sub
+
+    Private Sub Update_Move()
+
+        mouseLoc = CanvasForm.myMouseLocation
+
+        If Not _isSelected Then Exit Sub
+        If Not _canMove Then Exit Sub
+        If Not CanvasForm.myMouseIsDown Then
+            offset = mouseLoc - _myLocation
+            Exit Sub
+        End If
+
+        _myLocation = mouseLoc - offset
+
     End Sub
 
 End Class
